@@ -132,9 +132,8 @@ class Info(commands.Cog):
         await ctx.send(embed=embed)
 
     @commands.command(aliases=['mcstatut', 'stu', 'mcstu'])
-    async def statut(self, ctx):
-            """Indique le statut du serveur minecraft"""
-            ip='gm3.inovaperf.fr:25742'
+    async def statut(self, ctx, *, ip):
+            """Indique le statut d'un serveur minecraft"""
             # Ok, we are going to start here
             print("Executing command: {0}".format(f'statut {ip}'))
             await ctx.send("Ok, Veuillez patienter :D")
@@ -143,7 +142,7 @@ class Info(commands.Cog):
             try:
                 status = ServerStatus(ip)
             except:# Exception as e:
-                await ctx.send(":x: Désolé, mais le serveur minecraft est down :c")
+                await ctx.send(":x: Désolé, mais ce serveur minecraft est down :c")
                 print("Failed to find server: {0}")#.format(e))
                 return
 
@@ -178,7 +177,7 @@ class Info(commands.Cog):
     @commands.command(aliases=['bi', 'binfo'])
     async def botinfo(self, ctx):
         """Affiche des Infos sur le Bot"""
-        e = discord.Embed(title="AYC Bot", description="C'est moi !", color=0xeccd1c, timestamp=datetime.utcnow())
+        e = discord.Embed(title="Xina", description="C'est moi !", color=0xeccd1c, timestamp=datetime.utcnow())
         e.set_thumbnail(url=(await self.bot.fetch_user('552566569729916958')).avatar_url)
         e.add_field(name='Version', value=botversion)
         e.add_field(name='Librairie', value='Discord.py')
@@ -187,7 +186,6 @@ class Info(commands.Cog):
         e.add_field(name='Python version:', value=platform.python_version())
         e.add_field(name='ID :', value="552566569729916958")
         e.add_field(name='Créateur', value='Anokino')
-        e.add_field(name='Serveur', value='Acide Your Create')
         e.add_field(name='Utilisateurs', value=len(ctx.bot.users))
         e.add_field(name='Invite', value=(os.environ['invite']))
         e.add_field(name='Discord', value='~~https://discord.gg/~~')

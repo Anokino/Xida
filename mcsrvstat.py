@@ -36,7 +36,7 @@ class ServerStatus:
                 self.online_players, self.max_players), (55, 232, 31), self.smaller_font
         )
         draw.text((50, 280), "Version : {0}".format(self.version), (255, 38, 38), self.smaller_font)
-        draw.text((1178 - 340, 715 - 30), "Generated using AYC-Bot by Anokino [Discord]", (255, 255, 255),)
+        draw.text((1178 - 340, 715 - 30), "Generated using Xina by Anokino [Discord]", (255, 255, 255),)
         # Generate temporary image path
         img_path = "./tmp/tmp-{0}.png".format(+self.__img_counter)
         img.save(img_path)

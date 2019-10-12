@@ -66,7 +66,7 @@ class Modération(commands.Cog):
         await ctx.message.delete()
         e = discord.Embed(color=0xff1117, timestamp=datetime.utcnow())
         e.add_field(name=embed_type_en_un_seul_mot, value=texte)
-        e.set_footer(text=f'AcideYourCreate, demandé par : {ctx.author.name}')
+        e.set_footer(text=f'Xida, demandé par : {ctx.author.name}')
         await ctx.send(embed=e)
 
     @commands.command(aliases = ["sdg"])

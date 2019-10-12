@@ -87,7 +87,7 @@ class Administrateur(commands.Cog):
         """Relance le Bot (utile en cas de problème)"""
         if ctx.author.id == 305066808660983811 :
             await ctx.bot.change_presence(status=discord.Status.dnd, activity=discord.Game(name='Redémarrage...'))
-            e = discord.Embed(title="Redémarrage", description="AYC Bot", color=0xeccd1c, timestamp=datetime.utcnow())
+            e = discord.Embed(title="Redémarrage", description="Xina", color=0xeccd1c, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://www.rogers.com/web/smb/bss/images/widget-loader-lg_no-lang.gif")
             e.add_field(name='Bot:', value='Chargement...')
             e.set_footer(text="Codé par Anokino#5203", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
@@ -95,7 +95,7 @@ class Administrateur(commands.Cog):
             await asyncio.sleep(2)
             await ctx.channel.purge(limit=2)
 
-            e = discord.Embed(title="Redémarrage", description="AYC Bot", color=0xeccd1c, timestamp=datetime.utcnow())
+            e = discord.Embed(title="Redémarrage", description="Xina", color=0xeccd1c, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://www.rogers.com/web/smb/bss/images/widget-loader-lg_no-lang.gif")
             e.add_field(name='Bot:', value=f'Ouverture des cogs...')
             e.set_footer(text="Veuillez patienter")
@@ -112,7 +112,7 @@ class Administrateur(commands.Cog):
             await asyncio.sleep(4)
             await ctx.channel.purge(limit=1)
 
-            e = discord.Embed(title="Redémarrage", description="AYC Bot", color=0xeccd1c, timestamp=datetime.utcnow())
+            e = discord.Embed(title="Redémarrage", description="Xina", color=0xeccd1c, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://www.rogers.com/web/smb/bss/images/widget-loader-lg_no-lang.gif")
             e.add_field(name='Bot:', value=f'Contact de l\'API Discord...')
             e.set_footer(text="Veuillez patienter")
@@ -125,7 +125,7 @@ class Administrateur(commands.Cog):
             await ctx.channel.purge(limit=1)
 
             await ctx.bot.change_presence(status=discord.Status.online, activity=discord.Game(name=default_rich_presence))
-            e = discord.Embed(title="Bot redémarré !", description="AYC Bot", color=0xeccd1c, timestamp=datetime.utcnow())
+            e = discord.Embed(title="Bot redémarré !", description="Xina", color=0xeccd1c, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://png.pngtree.com/svg/20170315/5d8f7e389c.png")
             e.add_field(name='Bot:', value=f'Redémaré par : {ctx.author.name}')
             e.set_footer(text="Le bot peut mettre quelque temps avant de répondre.")
@@ -141,7 +141,7 @@ class Administrateur(commands.Cog):
     async def logout(self, ctx):
         """Eteint et deconnecte le Bot"""
         if ctx.author.id == 305066808660983811 :
-            e = discord.Embed(title="Extinction", description="AYC Bot", color=0xeccd1c, timestamp=datetime.utcnow())
+            e = discord.Embed(title="Extinction", description="Xina", color=0xeccd1c, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://www.rogers.com/web/smb/bss/images/widget-loader-lg_no-lang.gif")
             e.add_field(name='Bot:', value='En cours d\'arret...')
             e.set_footer(text="Codé par Anokino#5203", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
@@ -149,7 +149,7 @@ class Administrateur(commands.Cog):
             await asyncio.sleep(12)
             await ctx.channel.purge(limit=2)
             #await ctx.send('```Cette commande est indisponible car elle provoque des instabilitées```')
-            e = discord.Embed(title="Bot arrêté", description="AYC Bot", color=0xf20000, timestamp=datetime.utcnow())
+            e = discord.Embed(title="Bot arrêté", description="Xina", color=0xf20000, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://png.pngtree.com/svg/20170217/toggle_off_962765.png")
             e.add_field(name='Bot:', value=f'Arrêté par : {ctx.author.name}')
             e.set_footer(text="Le bot peut apparaître toujours connecté le temps qu'une réponse soit reçue par l'api Discord, mais il est éteint.")

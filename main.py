@@ -71,10 +71,10 @@ client = ksoftapi.Client(api_key=(os.environ['APIKEY']))
 #Status Messages
 async def status():
     while True:
-        #names = [f'{pref}help | AYC System', default_rich_presence, f'sur {len(bot.guilds)} serveurs', f'avec {len(bot.users)} utilisateurs']
+        #names = [f'{pref}help | Xina', default_rich_presence, f'sur {len(bot.guilds)} serveurs', f'avec {len(bot.users)} utilisateurs']
         names = ['❌🛑❌🛑❌🛑❌', "❌Grosse MAJ❌", '🛑❌🛑❌🛑❌🛑', "❌Bot inutilisable❌"]
-        #names = [f'{pref}help | AYC System', 'Mise à jour terminée', f'sur {len(bot.guilds)} serveurs', f'avec {len(bot.users)} utilisateurs']
-        #names = [f'{pref}help | AYC System', '#Eurovision', f'Joyeux Eurovision !', 'Eurovision 64 edtion !']
+        #names = [f'{pref}help | Xina', 'Mise à jour terminée', f'sur {len(bot.guilds)} serveurs', f'avec {len(bot.users)} utilisateurs']
+        #names = [f'{pref}help | Xina', '#Eurovision', f'Joyeux Eurovision !', 'Eurovision 64 edtion !']
         for name in names:
             await bot.change_presence(status=discord.Status.online, activity=discord.Game(name=name))
             await asyncio.sleep(3)
@@ -125,7 +125,7 @@ async def my_background_task():
 
 # Print the starting text
 print('---------------')
-print('AYC BOT')
+print('Xina')
 print('---------------')
 print('Lancement Bot...')
 # Setup basic logging for the bot
@@ -165,7 +165,7 @@ async def on_ready():
     print("Discord.py API version:", discord.__version__)
     print("Python version:", platform.python_version())
     print("En cours d'exécution sur:", platform.system(), platform.release(), "(" + os.name + ")")
-    print("AYC Bot version:", botversion)
+    print("Xina version:", botversion)
     print("Nom : {}".format(bot.user.name))
     print("ID : {}".format(bot.user.id))
     print(f"Actuellement actif sur: {str(len(bot.guilds))} servers.")
@@ -179,7 +179,7 @@ async def on_ready():
     await bot.change_presence(status=discord.Status.dnd, activity=discord.Game(name=game))
     await asyncio.sleep(5)
     bot.loop.create_task(status())
-    bot.loop.create_task(my_background_task())
+    #bot.loop.create_task(my_background_task())
 
     #logger.info("Bot started successfully.")
 
@@ -202,7 +202,7 @@ async def on_guild_join(guild):
     await bot.change_presence(status=discord.Status.online, activity=discord.Game(name=default_rich_presence))
     print("J'ai rejoint un serveur ! Nous sommes maintenant dans {} serveurs.".format(len(list(bot.guilds))))
     # Send a message in the server's general chat after joining.
-    general = find(lambda x: x.name == "🧢général", guild.text_channels)
+    general = find(lambda x: x.name == "generale", guild.text_channels)
     if general and general.permissions_for(guild.me).send_messages:
         await general.send(f"Bonjour {guild} !")
     else:
@@ -221,7 +221,7 @@ async def on_member_join(member):
             ctx = channel
             await ctx.send(f""" :inbox_tray: Bienvenue sur {ctx.guild} **{member}** !""")
             print(f"{datetime.utcnow()}| {member} a rejoins {ctx.guild}")
-        if str(channel) == "🧢général": # We check to make sure we are sending the message in the general channel
+        if str(channel) == "bienvenue": # We check to make sure we are sending the message in the general channel
             ctx = channel
             await ctx.send(f""" :inbox_tray: Bienvenue sur {ctx.guild} **{member}** ! *Et bon jeu* :wink:""")
             print(f"{datetime.utcnow()}| {member} a rejoins {ctx.guild}")
@@ -234,9 +234,9 @@ async def on_member_remove(member): #Fonction quand quelqu'un quitte un serveur
             ctx = channel
             await ctx.send(f""" :outbox_tray: {member} a quitté {ctx.guild}.""")
             print(f"{datetime.utcnow()}| {member} a quitté {ctx.guild}")
-        if str(channel) == "🧢général": # We check to make sure we are sending the message in the general channel
+        if str(channel) == "bienvenue": # We check to make sure we are sending the message in the general channel
             ctx = channel
-            await ctx.send(f""" :outbox_tray: {member} a quitté {ctx.guild}, en oubliant son seau d'acide.""")
+            await ctx.send(f""" :outbox_tray: {member} a quitté {ctx.guild}.""")
             print(f"{datetime.utcnow()}| {member} a quitté {ctx.guild}")
 
 
@@ -403,7 +403,7 @@ async def on_command_error(ctx: commands.Context, error: Exception):
         #helpText = page.split('\n') #get each line
         #usageMessage = helpText[1:-1] #remove ``` at begining and end who make the block
         #await ctx.send_help()
-        #e = discord.Embed(description="Aide AYC Bot", title='*En cours*', color=(dec), timestamp=datetime.utcnow()) #titre, sous-titre, couleur de l'embed, tampon de date
+        #e = discord.Embed(description="Aide Xina", title='*En cours*', color=(dec), timestamp=datetime.utcnow()) #titre, sous-titre, couleur de l'embed, tampon de date
         #e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/557926779768274975/logo.png")
         #e.add_field(name='`Test`', value=page) #titre de la case, sous-titre
         #e.add_field(name='`Divers`', value='Toutes les commandes utiles')
@@ -413,7 +413,7 @@ async def on_command_error(ctx: commands.Context, error: Exception):
         #if ctx.author.id == 305066808660983811 : #cette commande à laquelle vous n'aurez jamais accès :3
                 #e.add_field(name='`Administrateur`', value="Les commandes pour mon créateur !")
         #await ctx.send(embed=e) #envoyer l'embed
-    #e = discord.Embed(description="Aide AYC Bot", title='*Catégories*', color=(dec), timestamp=datetime.utcnow()) #titre, sous-titre, couleur de l'embed, tampon de date
+    #e = discord.Embed(description="Aide Xinatitle='*Catégories*', color=(dec), timestamp=datetime.utcnow()) #titre, sous-titre, couleur de l'embed, tampon de date
     #e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/557926779768274975/logo.png") #icone de l'embed
     #e.add_field(name='`Info`', value='Infos diverses') #titre de la case, sous-titre
     #e.add_field(name='`Divers`', value='Toutes les commandes utiles')
@@ -426,7 +426,7 @@ async def on_command_error(ctx: commands.Context, error: Exception):
 
 #@bot.command(aliases=['Info', 'Infos', 'INFO', 'INFOS']) #tous les "alias" souhaités pour la commande
 #async def help_info(ctx):
-#    e = discord.Embed(description="Aide AYC Bot™", title='*Infos*', color=(dec), timestamp=datetime.utcnow()) #titre, sous-titre, couleur de l'embed, tampon de date
+#    e = discord.Embed(description="Aide Xina™", title='*Infos*', color=(dec), timestamp=datetime.utcnow()) #titre, sous-titre, couleur de l'embed, tampon de date
 #    e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/557926779768274975/logo.png") #icone de l'embed
 #    e.add_field(name='`botinfo`', value='Infos sur le bot') #titre de la case, sous-titre
 #    e.add_field(name='`serverinfo`', value='Infos sur le serveur')
@@ -439,7 +439,7 @@ async def on_command_error(ctx: commands.Context, error: Exception):
 
 #@bot.command(aliases=['help diver', 'help divers', 'aide divers', 'HELP DIVERS'])
 #async def help_divers(ctx):
-#    e = discord.Embed(description="Aide AYC Bot™", title='*Divers*', color=(dec), timestamp=datetime.utcnow()) #titre, sous-titre, couleur de l'embed, tampon de date
+#    e = discord.Embed(description="Aide Xina™", title='*Divers*', color=(dec), timestamp=datetime.utcnow()) #titre, sous-titre, couleur de l'embed, tampon de date
 #    e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/557926779768274975/logo.png") #icone de l'embed
 #    e.add_field(name='`1`', value='1. 1') #titre de la case, sous-titre
 #    e.add_field(name='`2`', value='2. 1')
@@ -452,7 +452,7 @@ async def on_command_error(ctx: commands.Context, error: Exception):
 
 #@bot.command()
 #async def help_moderation(ctx):
-#    e = discord.Embed(description="Aide AYC Bot™", title='*Modération*', color=(dec), timestamp=datetime.utcnow()) #titre, sous-titre, couleur de l'embed, tampon de date
+#    e = discord.Embed(description="Aide Xina™", title='*Modération*', color=(dec), timestamp=datetime.utcnow()) #titre, sous-titre, couleur de l'embed, tampon de date
 #    e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/557926779768274975/logo.png") #icone de l'embed
 #    e.add_field(name='`1`', value='1. 1') #titre de la case, sous-titre
 #    e.add_field(name='`2`', value='2. 1')
@@ -465,7 +465,7 @@ async def on_command_error(ctx: commands.Context, error: Exception):
 
 #@bot.command()
 #async def help_fun(ctx):
-#    e = discord.Embed(description="Aide AYC Bot™", title='*Fun*', color=(dec), timestamp=datetime.utcnow()) #titre, sous-titre, couleur de l'embed, tampon de date
+#    e = discord.Embed(description="Aide Xina™", title='*Fun*', color=(dec), timestamp=datetime.utcnow()) #titre, sous-titre, couleur de l'embed, tampon de date
 #    e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/557926779768274975/logo.png") #icone de l'embed
 #    e.add_field(name='`1`', value='1. 1') #titre de la case, sous-titre
 #    e.add_field(name='`2`', value='2. 1')
@@ -478,7 +478,7 @@ async def on_command_error(ctx: commands.Context, error: Exception):
 
 #@bot.command()
 #async def help_admin(ctx):
-#    e = discord.Embed(description="Aide AYC Bot™", title='*Administrateur*', color=0xF47B67, timestamp=datetime.utcnow()) #titre, sous-titre, couleur de l'embed, tampon de date
+#    e = discord.Embed(description="Aide Xina™", title='*Administrateur*', color=0xF47B67, timestamp=datetime.utcnow()) #titre, sous-titre, couleur de l'embed, tampon de date
 #    e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/557926779768274975/logo.png") #icone de l'embe
 #    if ctx.author.id == 305066808660983811 : #cette commande à laquelle vous n'aurez jamais accès :3
 #            e.add_field(name='`Administrateur`', value="Les commandes pour mon créateur !")
@@ -580,12 +580,12 @@ async def commande314358425(ctx):
     await asyncio.sleep(2)
     await ctx.send("Joyeux poisson d'avril !")
 
-@bot.command()
-async def dynmap(ctx):
-    embed = discord.Embed(color = 0xF47B67)
-    embed.set_thumbnail(url="https://i.imgur.com/nvIvqtm.png")
-    embed.add_field(name="Dynmap Acide Your Create", value="http://ayc.craft.gg:40008")
-    await ctx.send(embed=embed)
+#@bot.command()
+#async def dynmap(ctx):
+#    embed = discord.Embed(color = 0xF47B67)
+#    embed.set_thumbnail(url="https://i.imgur.com/nvIvqtm.png")
+#    embed.add_field(name="Dynmap", value="http://ayc.craft.gg:40008")
+#    await ctx.send(embed=embed)
 
 
     #print(Fore.CYAN + "Command Successfully Executed |\n       Command Ran In:[" + ctx.message.guild.id + "]\n       User:[" + ctx.message.author.id + "]\n       Channel:[" + ctx.message.channel.id + "]")

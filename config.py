@@ -15,7 +15,7 @@ startup_extensions = ["cogs.crazi", "cogs.emoji"]
 
 logfile = 'discord.log' #Name of the file to log to (eg. 'discord.log')
 pref = "$" #Command prefix
-des = "AYC Bot Discord.py Bot" #Description shown on using the help command
+des = "Xina Discord.py Bot" #Description shown on using the help command
 
 # Error messages
 err_mesg = ":x: **Une erreur s'est produite !**"
