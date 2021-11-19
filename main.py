@@ -36,7 +36,7 @@ from youtube_dl import YoutubeDL
 from discord.utils import find
 from collections import Counter
 
-from mcsrvstat import ServerStatus
+#from mcsrvstat import ServerStatus
 
 # Config.py setup
 ##################################################################################
@@ -59,12 +59,12 @@ else:
 
 ##################################################################################
 
-bot = commands.Bot(description=des, command_prefix=pref, status=discord.Status.dnd, activity=discord.Game(name="💿Connexion à Discord..")) #indiquez la description et le préfixe de votre bot (laissez les apostrophes)
+bot = commands.Bot(description=des, command_prefix=pref, status=discord.Status.dnd, activity=discord.Game(name="ߒnnexion à Discord..")) #indiquez la description et le préfixe de votre bot (laissez les apostrophes)
 client = discord.Client()
 db = TinyDB('data.json')
 Users = Query()
 bot.remove_command('help')
-client = ksoftapi.Client(api_key=(os.environ['APIKEY']))
+#client = ksoftapi.Client(api_key=(os.environ['APIKEY']))
 
 
 
@@ -81,7 +81,7 @@ async def status():
 
 
 
-async def my_background_task():
+#async def my_background_task():
     while True:
         print("Statut-task executed")
         #counter = 0
@@ -133,9 +133,9 @@ print('Lancement Bot...')
 
 @bot.event
 async def on_connect():
-    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="📀Connexion à Discord.."))
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="ߓïnnexion à Discord.."))
     await asyncio.sleep(1.5)
-    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="💿Connexion à Discord.."))
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="ߒnnexion à Discord.."))
     print('------------------------')
     print('Bot connecté à Discord')
     print('------------------------')
@@ -156,7 +156,7 @@ async def on_ready():
     print('---------------------------')
     print("Bot en ligne!")
     print('---------------------------')
-    await bot.change_presence(status=discord.Status.dnd, activity=discord.Game(name="🔄Démarrage.."))
+    await bot.change_presence(status=discord.Status.dnd, activity=discord.Game(name="ߔ䄃魡rrage.."))
     f = open('logo.txt', 'r')
     file_contents = f.read()
     print(file_contents)
@@ -691,7 +691,7 @@ async def blabla(ctx):
 ##############################Lancement############################################################
 # Read bot token from "config.py" (which should be in the same directory as this file)
 
-bot.run(bot.run(os.environ['TOKEN']))
-
+#bot.run(bot.run(os.environ['TOKEN']))
+bot.run('NjMyNjMzMzY5ODYzMzg5MjA3.XaIPyA.fc00tJJngRgbr-HmeuTuv0S7bfk')
 #Lancer le bot. Remplacez token par votre token et laissez les apostrophes
 
