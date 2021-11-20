@@ -229,7 +229,7 @@ class Modération(commands.Cog):
             for ban in bans:
                 raisonban = ban.reason
                 #await ctx.send(bans)
-                if raisonban is 'Unspecified.':
+                if raisonban == 'Unspecified.':
                     raisonban = 'Non spécifiée'
                     await ctx.send(f'**Bannissement :** {ban.user} **ID :** {ban.user.id} **|** **Raison :** {raisonban} ')
                 else:

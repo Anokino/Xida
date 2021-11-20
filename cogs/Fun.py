@@ -48,14 +48,14 @@ else:
     except:
         print('Fun Cog : Fail to load config')
 
-def setup(bot):
-    bot.add_cog(DiscordBotsOrgAPI(bot))
+#def setup(bot):
+#    bot.add_cog(DiscordBotsOrgAPI(bot))
     
-class DiscordBotsOrgAPI:
-    	def __init__(self, bot):
-            self.bot = bot
-            self.token = os.environ['TOKEN']
-            self.dblpy = dbl.Client(self.bot, self.token)
+#class DiscordBotsOrgAPI:
+#    	def __init__(self, bot):
+#            self.bot = bot
+#            self.token = os.environ['TOKEN']
+#            self.dblpy = dbl.Client(self.bot, self.token)
 
 
 class Fun(commands.Cog):
