@@ -32,7 +32,7 @@ import youtube_dl
 from youtube_dl import YoutubeDL
 from discord.utils import find
 
-from mcsrvstat import ServerStatus
+#from mcsrvstat import ServerStatus
 
 # Config.py setup
 ##################################################################################
@@ -53,7 +53,7 @@ class Info(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self._last_member = None
-        self.client = ksoftapi.Client(api_key=(os.environ['APIKEY']))
+        #self.client = ksoftapi.Client(api_key=(os.environ['APIKEY']))
 
 
     @commands.command(name="help", aliases=['h'])
@@ -106,7 +106,7 @@ class Info(commands.Cog):
                     help_message = ""
                     for commnd in self.bot.get_cog(cog).get_commands():
                         help_message += "\n - " + commnd.name + " : " + str(commnd.help)
-                    if help_message is "":
+                    if help_message == "":
                         continue
                     else:
                         em.add_field(name=cog.replace('_', ' '), value=help_message + "\n", inline=False)

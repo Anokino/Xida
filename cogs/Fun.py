@@ -62,7 +62,7 @@ class Fun(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self._last_member = None
-        self.client = ksoftapi.Client(api_key=(os.environ['APIKEY']))
+        #self.client = ksoftapi.Client(api_key=(os.environ['APIKEY']))
 
     @commands.command()
     async def dice(self, ctx, nombre1: int = None, nombre2: int = None):
@@ -119,7 +119,7 @@ class Fun(commands.Cog):
         """Tire une pièce à pile ou face" """
         try:
             rnd = randint(1, 2)
-            if rnd is(1):
+            if rnd ==(1):
                 e = discord.Embed(description=f'Pile ou face ?', title="Lancé de pièce", color=0xffffff, timestamp=datetime.utcnow())
                 e.set_thumbnail(url='https://i.imgur.com/z3kHWnZ.png')
                 e.add_field(name=f"{ctx.author.name}, Voila ma réponse: ", value="Pile")

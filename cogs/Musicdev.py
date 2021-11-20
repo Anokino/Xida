@@ -205,7 +205,7 @@ class Music(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.players = {}
-        self.client = ksoftapi.Client(api_key=(os.environ['APIKEY']))
+        #self.client = ksoftapi.Client(api_key=(os.environ['APIKEY']))
 
     async def cleanup(self, guild):
         try:

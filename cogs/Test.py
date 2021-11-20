@@ -53,7 +53,7 @@ class Test(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self._last_member = None
-        self.client = ksoftapi.Client(api_key=(os.environ['APIKEY']))
+        #self.client = ksoftapi.Client(api_key=(os.environ['APIKEY']))
         
 
     @commands.command(aliases = ["ex", "execute"])

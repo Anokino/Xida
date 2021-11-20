@@ -59,7 +59,7 @@ else:
 
 ##################################################################################
 
-bot = commands.Bot(description=des, command_prefix=pref, status=discord.Status.dnd, activity=discord.Game(name="ߒnnexion à Discord..")) #indiquez la description et le préfixe de votre bot (laissez les apostrophes)
+bot = commands.Bot(description=des, command_prefix=pref, status=discord.Status.dnd, activity=discord.Game(name="💿Connexion à Discord..")) #indiquez la description et le préfixe de votre bot (laissez les apostrophes)
 client = discord.Client()
 db = TinyDB('data.json')
 Users = Query()
@@ -134,9 +134,9 @@ print('Lancement Bot...')
 
 @bot.event
 async def on_connect():
-    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="ߓïnnexion à Discord.."))
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="📀Connexion à Discord.."))
     await asyncio.sleep(1.5)
-    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="ߒnnexion à Discord.."))
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="💿Connexion à Discord.."))
     print('------------------------')
     print('Bot connecté à Discord')
     print('------------------------')
@@ -157,7 +157,7 @@ async def on_ready():
     print('---------------------------')
     print("Bot en ligne!")
     print('---------------------------')
-    await bot.change_presence(status=discord.Status.dnd, activity=discord.Game(name="ߔ䄃魡rrage.."))
+    await bot.change_presence(status=discord.Status.dnd, activity=discord.Game(name="🔄Démarrage.."))
     f = open('logo.txt', 'r')
     file_contents = f.read()
     print(file_contents)
@@ -175,7 +175,7 @@ async def on_ready():
     print('---------------------------')
     print("Le Bot est démarré et prêt!")
     print('---------------------------')
-    await asyncio.sleep(15)
+    await asyncio.sleep(8)
     game = discord.Game(name=f"{pref}help | {len(bot.guilds)} serveurs !")
     await bot.change_presence(status=discord.Status.dnd, activity=discord.Game(name=game))
     await asyncio.sleep(5)
@@ -647,7 +647,7 @@ async def blabla(ctx):
     embedfieldnum = input("How many fields in the embed? (Enter a number, 0 for none): ")
     try: embedfieldnum = int(embedfieldnum)
     except: print("You were supposed to enter a number - we'll assume you meant 0.")
-    if embedfieldnum is not 0:
+    if embedfieldnum != 0:
         embed['fields'] = []
         for fieldnum in range(embedfieldnum):
             fieldtitle = input("Field {} Title: ".format(fieldnum+1))

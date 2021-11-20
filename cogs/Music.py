@@ -95,7 +95,7 @@ class YTDLSource(discord.PCMVolumeTransformer):
 class Music(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.client = ksoftapi.Client(api_key=(os.environ['APIKEY']))
+        #self.client = ksoftapi.Client(api_key=(os.environ['APIKEY']))
         #self.init_logger()
 
     #def init_logger(self):
