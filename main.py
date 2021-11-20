@@ -71,8 +71,8 @@ bot.remove_command('help')
 #Status Messages
 async def status():
     while True:
-        #names = [f'{pref}help | Xina', default_rich_presence, f'sur {len(bot.guilds)} serveurs', f'avec {len(bot.users)} utilisateurs']
-        names = ['❌🛑❌🛑❌🛑❌', "❌Grosse MAJ❌", '🛑❌🛑❌🛑❌🛑', "❌Bot inutilisable❌"]
+        names = [f'{pref}help | Xina', default_rich_presence, f'sur {len(bot.guilds)} serveurs', f'avec {len(bot.users)} utilisateurs']
+        #names = ['❌🛑❌🛑❌🛑❌', "❌Grosse MAJ❌", '🛑❌🛑❌🛑❌🛑', "❌Bot inutilisable❌"]
         #names = [f'{pref}help | Xina', 'Mise à jour terminée', f'sur {len(bot.guilds)} serveurs', f'avec {len(bot.users)} utilisateurs']
         #names = [f'{pref}help | Xina', '#Eurovision', f'Joyeux Eurovision !', 'Eurovision 64 edtion !']
         for name in names:
