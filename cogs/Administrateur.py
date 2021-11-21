@@ -45,6 +45,7 @@ else:
     except:
         print('Administrateur Cog : Fail to load config')
 
+            
 class Administrateur(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -88,7 +89,7 @@ class Administrateur(commands.Cog):
         if ctx.author.id == 305066808660983811 :
             await ctx.bot.change_presence(status=discord.Status.dnd, activity=discord.Game(name='Redémarrage...'))
             e = discord.Embed(title="Redémarrage", description="Xina", color=0xeccd1c, timestamp=datetime.utcnow())
-            e.set_thumbnail(url="https://www.rogers.com/web/smb/bss/images/widget-loader-lg_no-lang.gif")
+            e.set_thumbnail(url="https://i.imgur.com/d2Mnv3M.gif")
             e.add_field(name='Bot:', value='Chargement...')
             e.set_footer(text="Codé par Anokino#5203", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
             await ctx.send(embed=e)
@@ -96,7 +97,7 @@ class Administrateur(commands.Cog):
             await ctx.channel.purge(limit=2)
 
             e = discord.Embed(title="Redémarrage", description="Xina", color=0xeccd1c, timestamp=datetime.utcnow())
-            e.set_thumbnail(url="https://www.rogers.com/web/smb/bss/images/widget-loader-lg_no-lang.gif")
+            e.set_thumbnail(url="https://i.imgur.com/d2Mnv3M.gif")
             e.add_field(name='Bot:', value=f'Ouverture des cogs...')
             e.set_footer(text="Veuillez patienter")
             await ctx.send(embed=e)
@@ -108,19 +109,19 @@ class Administrateur(commands.Cog):
                 await ctx.send('Erreur')#\N{PISTOL}')
                 await ctx.send('{}: {}'.format(type(e).__name__, e))
             else:
-                await ctx.send('Ok')#\N{OK HAND SIGN}')
-            await asyncio.sleep(4)
-            await ctx.channel.purge(limit=1)
+                await ctx.send('*Tous les modules sont chargés - Veuillez patienter*')#\N{OK HAND SIGN}')
+            await asyncio.sleep(5)
+            await ctx.channel.purge(limit=2)
 
             e = discord.Embed(title="Redémarrage", description="Xina", color=0xeccd1c, timestamp=datetime.utcnow())
-            e.set_thumbnail(url="https://www.rogers.com/web/smb/bss/images/widget-loader-lg_no-lang.gif")
+            e.set_thumbnail(url="https://i.imgur.com/d2Mnv3M.gif")
             e.add_field(name='Bot:', value=f'Contact de l\'API Discord...')
             e.set_footer(text="Veuillez patienter")
             await ctx.send(embed=e)
 
-            await ctx.bot.logout()
-            await asyncio.sleep(2)
-            self.bot.run(self.bot.run(os.environ['TOKEN']))
+            await asyncio.sleep(5)
+            os.execl(sys.executable, os.path.abspath(__file__), *sys.argv)
+            #self.bot.run('NjMyNjMzMzY5ODYzMzg5MjA3.XaIPvQ.wo61xhoROwSE4WqKUQl8q0_2oUc')
             await asyncio.sleep(1)
             await ctx.channel.purge(limit=1)
 
@@ -141,12 +142,14 @@ class Administrateur(commands.Cog):
     async def logout(self, ctx):
         """Eteint et deconnecte le Bot"""
         if ctx.author.id == 305066808660983811 :
+            await self.bot.change_presence(status=discord.Status.dnd, activity=discord.Game(name="🎈Indisponible🎈"))
             e = discord.Embed(title="Extinction", description="Xina", color=0xeccd1c, timestamp=datetime.utcnow())
-            e.set_thumbnail(url="https://www.rogers.com/web/smb/bss/images/widget-loader-lg_no-lang.gif")
-            e.add_field(name='Bot:', value='En cours d\'arret...')
+            e.set_thumbnail(url="https://i.imgur.com/d2Mnv3M.gif")
+            e.add_field(name='Bot:', value='En cours d\'arrêt...')
             e.set_footer(text="Codé par Anokino#5203", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
             await ctx.send(embed=e)
-            await asyncio.sleep(12)
+            await asyncio.sleep(6)
+            await self.bot.change_presence(status=discord.Status.dnd, activity=discord.Game(name="BOT ARRÊTÉ"))
             await ctx.channel.purge(limit=2)
             #await ctx.send('```Cette commande est indisponible car elle provoque des instabilitées```')
             e = discord.Embed(title="Bot arrêté", description="Xina", color=0xf20000, timestamp=datetime.utcnow())
@@ -157,7 +160,7 @@ class Administrateur(commands.Cog):
             await ctx.bot.logout()
             sys.exit
         else:
-            await ctx.send(" :x: Désolé mais seul l'administrateur peut éxécuter cette commande.")
+            await ctx.send(":x: Désolé mais seul l'administrateur peut exécuter cette commande.")
 
 def setup(bot):
     bot.add_cog(Administrateur(bot))

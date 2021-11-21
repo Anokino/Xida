@@ -688,6 +688,6 @@ async def blabla(ctx):
 # Read bot token from "config.py" (which should be in the same directory as this file)
 
 #bot.run(bot.run(os.environ['TOKEN']))
-bot.run('NjMyNjMzMzY5ODYzMzg5MjA3.XaIPyA.fc00tJJngRgbr-HmeuTuv0S7bfk')
+bot.run('NjMyNjMzMzY5ODYzMzg5MjA3.XaIPvQ.wo61xhoROwSE4WqKUQl8q0_2oUc')
 #Lancer le bot. Remplacez token par votre token et laissez les apostrophes
 

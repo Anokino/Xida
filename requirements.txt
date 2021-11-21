@@ -9,6 +9,7 @@ datetime
 delete
 profanity
 tinydb
+wheel
 query
 Style
 Pillow

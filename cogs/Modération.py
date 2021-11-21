@@ -50,6 +50,7 @@ else:
 class Modération(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        bot = self.bot
         self._last_member = None
         #self.client = ksoftapi.Client(api_key=(os.environ['APIKEY']))
 
