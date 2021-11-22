@@ -31,6 +31,7 @@ from functools import partial
 import youtube_dl
 from youtube_dl import YoutubeDL
 from discord.utils import find
+import appcommands
 
 #from mcsrvstat import ServerStatus
 
@@ -54,6 +55,7 @@ class Info(commands.Cog):
         self.bot = bot
         self._last_member = None
         #self.client = ksoftapi.Client(api_key=(os.environ['APIKEY']))
+        bot = appcommands.Bot(command_prefix="$")
 
 
     @commands.command(name="help", aliases=['h'])
@@ -68,7 +70,7 @@ class Info(commands.Cog):
                 #command=command_name
                 #em = discord.Embed(colour=dec)
                 #em.set_author(name="Aide de " + self.bot.user.name + ":", icon_url=self.bot.user.avatar_url)
-                #em.set_footer(text="Codé par Anokino#5203",
+                #em.set_footer(text="Codé par Δnokino#7477",
                 #            icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
                 #em.add_field(name=command_name, value=self.bot.get_command("usage"))
                 #await ctx.send(embed=em)
@@ -77,7 +79,7 @@ class Info(commands.Cog):
                 #await ctx.send(self.bot.get_command("usage"), command_name)
                 #em = discord.Embed(colour=dec)
                 #em.set_author(name="Aide de " + self.bot.user.name + ":", icon_url=self.bot.user.avatar_url)
-                #em.set_footer(text="Codé par Anokino#5203",
+                #em.set_footer(text="Codé par Δnokino#7477",
                 #            icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
                 #em.add_field(name=command_name, value=self.bot.get_command("usage"))
                 #await ctx.send(embed=em)
@@ -100,7 +102,7 @@ class Info(commands.Cog):
             else:
                 em = discord.Embed(colour=dec)
                 em.set_author(name="Aide de " + self.bot.user.name + ":", icon_url=self.bot.user.avatar_url)
-                em.set_footer(text="Codé par Anokino#5203",
+                em.set_footer(text="Codé par Δnokino#7477",
                             icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
                 for cog in self.bot.cogs:
                     help_message = ""
@@ -112,6 +114,18 @@ class Info(commands.Cog):
                         em.add_field(name=cog.replace('_', ' '), value=help_message + "\n", inline=False)
                 await ctx.send(embed=em)
 
+
+
+
+
+    @bot.usercommand(name="id")
+    async def uid(ctx, user):
+        await ctx.send(f"The id of {user.mention} is {user.id}", ephemeral=True)
+
+    @bot.messagecommand(name="id")
+    async def mid(ctx, msg):
+        await ctx.send(f"The id of that message is {msg.id}", ephemeral=True)
+
     #@commands.command()
     #async def test(self, ctx):
     #    """Indique si le Bot est opérationnel ou pas"""
@@ -119,7 +133,7 @@ class Info(commands.Cog):
     #    embed.set_thumbnail(url = "https://i.imgur.com/OYubpvf.gif")
     #    embed.add_field(name="Status:", value="**🔺Le bot est actuellement en maintenance🔺**", inline=True)
     #    embed.add_field(name="Error:", value="```Certaines commandes sont innacessibles et des bugs peuvent survenir```", inline=True)
-    #    embed.set_footer(text="Codé par Anokino#5203", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+    #    embed.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
     #    await ctx.send(embed=embed)
 
     @commands.command(aliases=['te'])
@@ -128,7 +142,7 @@ class Info(commands.Cog):
         embed = discord.Embed(color = (dec))
         embed.set_thumbnail(url = "http://www.etme.com/assets/loader.gif")
         embed.add_field(name="Status:", value="**Le bot est connecté et opérationnel **", inline=True)
-        embed.set_footer(text="Codé par Anokino#5203", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+        embed.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
         await ctx.send(embed=embed)
 
     @commands.command(aliases=['mcstatut', 'stu', 'mcstu'])
@@ -170,7 +184,7 @@ class Info(commands.Cog):
     #    embed.set_thumbnail(url = "https://media.giphy.com/media/5kzB8SARBWCmQ/giphy.gif")
     #    embed.add_field(name="Status:", value="**❌Le bot est actuellement Down❌**", inline=True)
     #    embed.add_field(name="Error:", value="```x.ctx.bot(dynos does not respond), self.down.hbrg_error)```", inline=True)
-    #    embed.set_footer(text="Codé par Anokino#5203", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+    #    embed.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
     #    await ctx.send(embed=embed)
 
 
@@ -194,7 +208,7 @@ class Info(commands.Cog):
         cmmd_nb = str(len(self.bot.commands))
 
         e.add_field(name='Nombre actuel de commandes', value=cmmd_nb)
-        e.set_footer(text="Codé par Anokino#5203", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+        e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
         await ctx.send(embed=e)
 
     @commands.command(aliases=['pi'])
@@ -257,7 +271,7 @@ class Info(commands.Cog):
         e.add_field(name='No', value='No')
         e.add_field(name='No', value='No')
         e.add_field(name='No', value='No')
-        e.set_footer(text="Codé par Anokino#5203", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+        e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
         await ctx.send(embed=e)
 
     @commands.command(aliases=['sa'])
@@ -274,7 +288,7 @@ class Info(commands.Cog):
             embed.set_thumbnail(url = ctx.guild.icon_url)
             for channel in channels:
                 embed.add_field(name=f"Salon/Catégorie : {channel.name}", value=f"  ID : {channel.id}", inline=True)
-                embed.set_footer(text="Codé par Anokino#5203", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+                embed.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
             await ctx.send(embed=embed)
         except:
             ctx.send("Trop de Salons/Catégories.")
@@ -292,7 +306,7 @@ class Info(commands.Cog):
         embed.set_thumbnail(url = ctx.guild.icon_url)
         for role in roles:
             embed.add_field(name=f"Role : {role.name}", value=f"ID : {role.id}", inline=False)
-            embed.set_footer(text="Codé par Anokino#5203", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            embed.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
         await ctx.send(embed=embed)
 
 
@@ -314,7 +328,7 @@ class Info(commands.Cog):
             embed.add_field(name="Création compte:", value=member.created_at, inline=True)
             embed.add_field(name="Role principal : ", value=member.top_role.mention, inline=True)
             embed.add_field(name=f"Roles : ({len(roles)})", value=" ".join([role.mention for role in roles]), inline=True)
-            embed.set_footer(text="Codé par Anokino#5203", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            embed.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
             await ctx.send(embed=embed)
         else:
             roles = [role for role in member.roles]
@@ -329,7 +343,7 @@ class Info(commands.Cog):
             embed.add_field(name="Création compte:", value=member.created_at, inline=True)
             embed.add_field(name="Role principal : ", value=member.top_role.mention, inline=True)
             embed.add_field(name=f"Roles : ({len(roles)})", value=" ".join([role.mention for role in roles]), inline=True)
-            embed.set_footer(text="Codé par Anokino#5203", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            embed.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
             await ctx.send(embed=embed)
 
     @commands.command(name="avatar", aliases=['pp', 'av', 'userpp', 'upp'])
@@ -339,12 +353,12 @@ class Info(commands.Cog):
             member = ctx.message.author
             e = discord.Embed(description="Image de profil de {}".format(member.name), title='Avatar', color=0xF47B67, timestamp=datetime.utcnow())
             e.set_image(url=member.avatar_url)
-            e.set_footer(text="Codé par Anokino#5203", icon_url=member.avatar_url)
+            e.set_footer(text="Codé par Δnokino#7477", icon_url=member.avatar_url)
             await ctx.send(embed=e)
         else:
             e = discord.Embed(description="Image de profil de {}".format(member.name), title='Avatar', color=0xF47B67, timestamp=datetime.utcnow())
             e.set_image(url=member.avatar_url)
-            e.set_footer(text="Codé par Anokino#5203", icon_url=member.avatar_url)
+            e.set_footer(text="Codé par Δnokino#7477", icon_url=member.avatar_url)
             await ctx.send(embed=e)
 
 

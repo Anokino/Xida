@@ -67,7 +67,7 @@ class Test(commands.Cog):
         img = await self.client.random_image("birb")
         e = discord.Embed(description="Birb, demandé par {}".format(ctx.author.name), title='Avatar', color=0xF47B67, timestamp=datetime.utcnow())
         e.set_image(url=img.url)
-        e.set_footer(text="Codé par Anokino#5203", icon_url=ctx.author.avatar_url)
+        e.set_footer(text="Codé par Δnokino#7477", icon_url=ctx.author.avatar_url)
         await ctx.send(embed=e)
 
     @commands.command(name="tsearch", aliases=["tagsearch", "tagsh"])
@@ -78,7 +78,7 @@ class Test(commands.Cog):
         img = await self.client.random_image(tag)
         e = discord.Embed(description="Image demandée par {}".format(ctx.author.name), title=tag, color=0xF47B67, timestamp=datetime.utcnow())
         e.set_image(url=img.url)
-        e.set_footer(text="Codé par Anokino#5203", icon_url=ctx.author.avatar_url)
+        e.set_footer(text="Codé par Δnokino#7477", icon_url=ctx.author.avatar_url)
         await ctx.send(embed=e)
 
     @commands.command(name="edit")

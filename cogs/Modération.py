@@ -94,14 +94,14 @@ class Modération(commands.Cog):
             e = discord.Embed(color=(dec), timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://cdn.discordapp.com/attachments/423902499209084928/586637217477427261/sign-check-icon.png")
             e.add_field(name=f'Réponse de {ctx.author.name} :', value=f"{member.mention}, **ta demande a été acceptée !**")
-            e.set_footer(text="Codé par Anokino#5203", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
             m = await ctx.send(embed=e)
         else:
             e = discord.Embed(color=(dec), timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://cdn.discordapp.com/attachments/423902499209084928/586637217477427261/sign-check-icon.png")
             e.add_field(name=f'Réponse de {ctx.author.name} :', value=f"{member.mention}, **ta demande a été acceptée !**")
             e.add_field(name=f"Commentaire : ", value=f"{commentaire}", inline=False)
-            e.set_footer(text="Codé par Anokino#5203", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
             m = await ctx.send(embed=e)
 
 
@@ -115,14 +115,14 @@ class Modération(commands.Cog):
             e = discord.Embed(color=(dec), timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://cdn.discordapp.com/attachments/423902499209084928/586637363409584130/xx.png")
             e.add_field(name=f'Réponse de {ctx.author.name} :', value=f"{member.mention}, **ta demande a été declinée x(**")
-            e.set_footer(text="Codé par Anokino#5203", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
             m = await ctx.send(embed=e)
         else:
             e = discord.Embed(color=(dec), timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://cdn.discordapp.com/attachments/423902499209084928/586637363409584130/xx.png")
             e.add_field(name=f'Réponse de {ctx.author.name} :', value=f"{member.mention}, **ta demande a été declinée x(**")
             e.add_field(name=f"Commentaire : ", value=f"{commentaire}", inline=False)
-            e.set_footer(text="Codé par Anokino#5203", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
             m = await ctx.send(embed=e)
 
     @commands.has_permissions(kick_members=True)
@@ -149,7 +149,7 @@ class Modération(commands.Cog):
             e = discord.Embed(title="__Erreur :__", color=0xeccd1c, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/511145934982217738/error.png")
             e.add_field(name="**Permissions Insuffisantes**", value="­­ ")
-            e.set_footer(text="Codé par Anokino#5203", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
             await ctx.send(embed=e)
 
 
@@ -162,7 +162,7 @@ class Modération(commands.Cog):
             e = discord.Embed(title="__**Kick de Membre**__", color=0xeccd1c, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/511145934982217738/error.png")
             e.add_field(name='{} a bien été exclu !'.format(member), value=f'avec comme raison : {raison}')
-            e.set_footer(text="Codé par Anokino#5203", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
             await ctx.send(embed=e)
             await member.kick()
 
@@ -170,7 +170,7 @@ class Modération(commands.Cog):
             e = discord.Embed(title="__Erreur :__", color=0xeccd1c, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/511145934982217738/error.png")
             e.add_field(name="**Permissions Insuffisantes**", value="­­ ")
-            e.set_footer(text="Codé par Anokino#5203", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
             await ctx.send(embed=e)
 
 
@@ -184,7 +184,7 @@ class Modération(commands.Cog):
             e = discord.Embed(title="__**Ban de Membre**__", color=0xeccd1c, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/511145934982217738/error.png")
             e.add_field(name='{} a bien été banni !'.format(member), value=f'avec comme raison : {raison}')
-            e.set_footer(text="Codé par Anokino#5203", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
             await ctx.send(embed=e)
             await member.ban()
 
@@ -192,7 +192,7 @@ class Modération(commands.Cog):
             e = discord.Embed(title="__Erreur :__", color=0xeccd1c, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/511145934982217738/error.png")
             e.add_field(name="**Permissions Insuffisantes**", value="­­ ")
-            e.set_footer(text="Codé par Anokino#5203", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
             await ctx.send(embed=e)
 
 
@@ -205,7 +205,7 @@ class Modération(commands.Cog):
             e = discord.Embed(title="__**>Unban de Membre**__", color=0xeccd1c, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/511145934982217738/error.png")
             e.add_field(name='{} a bien été débanni !'.format(member), value=f'✅')
-            e.set_footer(text="Codé par Anokino#5203", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
             await ctx.send(embed=e)
             await member.unban()
 
@@ -213,7 +213,7 @@ class Modération(commands.Cog):
             e = discord.Embed(title="__Erreur :__", color=0xeccd1c, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/511145934982217738/error.png")
             e.add_field(name="**Permissions Insuffisantes**", value="­­ ")
-            e.set_footer(text="Codé par Anokino#5203", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
             await ctx.send(embed=e)
 
     @commands.has_permissions(kick_members=True)
@@ -237,7 +237,7 @@ class Modération(commands.Cog):
                     await ctx.send(f'**Bannissement :** {ban.user} **ID :** {ban.user.id} **|** **Raison :** {raisonban} ')
                     #embed=discord.Embed(title="Banissements", description=f"Serveur : {ctx.guild}", color=0xce0005, timestamp=datetime.utcnow())
                     #embed.set_thumbnail(url = ctx.guild.icon_url)
-                    #embed.set_footer(text="Codé par Anokino#5203", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+                    #embed.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
                     #await ctx.send(embed=embed)
                     #await ctx.send(f'Bannissements : {ban.user} , {raisonban} ')
 

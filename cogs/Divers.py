@@ -128,7 +128,7 @@ class Divers(commands.Cog):
             e = discord.Embed(title="__Erreur :__", color=0xeccd1c, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/511145934982217738/error.png")
             e.add_field(name="**Erreur**", value="*Message trop long ?* ou si erreur, faites -report")
-            e.set_footer(text="Codé par Anokino#5203", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
             await ctx.send(embed=e)
 
 

@@ -361,8 +361,8 @@ async def on_command_error(ctx: commands.Context, error: Exception):
         await ctx.send("Permissions manquantes")
         return
 
-    #print('Ignoring exception in command {}:'.format(ctx.command), file=sys.stderr)
-    #traceback.print_exception(type(error), error, error.__traceback__, file=sys.stderr)
+    print('Ignoring exception in command {}:'.format(ctx.command), file=sys.stderr)
+    traceback.print_exception(type(error), error, error.__traceback__, file=sys.stderr)
 
 
 
