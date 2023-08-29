@@ -40,7 +40,7 @@ if not os.path.isfile("config.py"):
 else:
     try:
         import config  # config.py is required to run; found in the same directory.
-        from config import botversion, des, pref, bbtoken, key, startup_extensions, logfile, err_mesg, err_mesg_pi, err_mesg_permission, dec, answers, default_rich_presence, mention, heightballp, hug_img, kiss_img, slap_img, poke_img # setup.py is used to get the version number
+        from config import nombot, createur, botversion, des, pref, bbtoken, key, startup_extensions, logfile, err_mesg, err_mesg_pi, err_mesg_permission, dec, answers, default_rich_presence, mention, heightballp, hug_img, kiss_img, slap_img, poke_img # setup.py is used to get the version number
         print('Modération Cog : Config loaded')
     except:
         print('Modération Cog : Fail to load config')
@@ -67,7 +67,7 @@ class Modération(commands.Cog):
         await ctx.message.delete()
         e = discord.Embed(color=0xff1117, timestamp=datetime.utcnow())
         e.add_field(name=embed_type_en_un_seul_mot, value=texte)
-        e.set_footer(text=f'Xida, demandé par : {ctx.author.name}')
+        e.set_footer(text=f''+ nombot +', demandé par : {ctx.author.name}')
         await ctx.send(embed=e)
 
     @commands.command(aliases = ["sdg"])
@@ -80,9 +80,9 @@ class Modération(commands.Cog):
         e.set_footer(text=f'Réagissez avec les réactions ci-dessous pour donner votre avis !')
         m = await ctx.send(embed=e)
         asyncio.sleep(0.3)
-        await m.add_reaction(emoji="✅")
+        await m.add_reaction("✅")
         asyncio.sleep(0.2)
-        await m.add_reaction(emoji="❌")
+        await m.add_reaction("❌")
 
     @commands.has_permissions(kick_members=True)
     @commands.command(name="osub", aliases = ["osug", " ouisuggestion", "sugo", "suggestionoui", "subo"])
@@ -94,14 +94,14 @@ class Modération(commands.Cog):
             e = discord.Embed(color=(dec), timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://cdn.discordapp.com/attachments/423902499209084928/586637217477427261/sign-check-icon.png")
             e.add_field(name=f'Réponse de {ctx.author.name} :', value=f"{member.mention}, **ta demande a été acceptée !**")
-            e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
             m = await ctx.send(embed=e)
         else:
             e = discord.Embed(color=(dec), timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://cdn.discordapp.com/attachments/423902499209084928/586637217477427261/sign-check-icon.png")
             e.add_field(name=f'Réponse de {ctx.author.name} :', value=f"{member.mention}, **ta demande a été acceptée !**")
             e.add_field(name=f"Commentaire : ", value=f"{commentaire}", inline=False)
-            e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
             m = await ctx.send(embed=e)
 
 
@@ -115,14 +115,14 @@ class Modération(commands.Cog):
             e = discord.Embed(color=(dec), timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://cdn.discordapp.com/attachments/423902499209084928/586637363409584130/xx.png")
             e.add_field(name=f'Réponse de {ctx.author.name} :', value=f"{member.mention}, **ta demande a été declinée x(**")
-            e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
             m = await ctx.send(embed=e)
         else:
             e = discord.Embed(color=(dec), timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://cdn.discordapp.com/attachments/423902499209084928/586637363409584130/xx.png")
             e.add_field(name=f'Réponse de {ctx.author.name} :', value=f"{member.mention}, **ta demande a été declinée x(**")
             e.add_field(name=f"Commentaire : ", value=f"{commentaire}", inline=False)
-            e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
             m = await ctx.send(embed=e)
 
     @commands.has_permissions(kick_members=True)
@@ -149,7 +149,7 @@ class Modération(commands.Cog):
             e = discord.Embed(title="__Erreur :__", color=0xeccd1c, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/511145934982217738/error.png")
             e.add_field(name="**Permissions Insuffisantes**", value="­­ ")
-            e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
             await ctx.send(embed=e)
 
 
@@ -162,7 +162,7 @@ class Modération(commands.Cog):
             e = discord.Embed(title="__**Kick de Membre**__", color=0xeccd1c, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/511145934982217738/error.png")
             e.add_field(name='{} a bien été exclu !'.format(member), value=f'avec comme raison : {raison}')
-            e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
             await ctx.send(embed=e)
             await member.kick()
 
@@ -170,7 +170,7 @@ class Modération(commands.Cog):
             e = discord.Embed(title="__Erreur :__", color=0xeccd1c, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/511145934982217738/error.png")
             e.add_field(name="**Permissions Insuffisantes**", value="­­ ")
-            e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
             await ctx.send(embed=e)
 
 
@@ -184,7 +184,7 @@ class Modération(commands.Cog):
             e = discord.Embed(title="__**Ban de Membre**__", color=0xeccd1c, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/511145934982217738/error.png")
             e.add_field(name='{} a bien été banni !'.format(member), value=f'avec comme raison : {raison}')
-            e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
             await ctx.send(embed=e)
             await member.ban()
 
@@ -192,7 +192,7 @@ class Modération(commands.Cog):
             e = discord.Embed(title="__Erreur :__", color=0xeccd1c, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/511145934982217738/error.png")
             e.add_field(name="**Permissions Insuffisantes**", value="­­ ")
-            e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
             await ctx.send(embed=e)
 
 
@@ -205,7 +205,7 @@ class Modération(commands.Cog):
             e = discord.Embed(title="__**>Unban de Membre**__", color=0xeccd1c, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/511145934982217738/error.png")
             e.add_field(name='{} a bien été débanni !'.format(member), value=f'✅')
-            e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
             await ctx.send(embed=e)
             await member.unban()
 
@@ -213,7 +213,7 @@ class Modération(commands.Cog):
             e = discord.Embed(title="__Erreur :__", color=0xeccd1c, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/511145934982217738/error.png")
             e.add_field(name="**Permissions Insuffisantes**", value="­­ ")
-            e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
             await ctx.send(embed=e)
 
     @commands.has_permissions(kick_members=True)
@@ -225,9 +225,8 @@ class Modération(commands.Cog):
         #    e.add_field(name='Nombre actuel de commandes', value=str(len(self.bot.get_cog(cog).get_commands())))
 
         try:
-            bans = await ctx.guild.bans()
 
-            for ban in bans:
+            async for ban in guild.bans(limit=1000):
                 raisonban = ban.reason
                 #await ctx.send(bans)
                 if raisonban == 'Unspecified.':
@@ -236,14 +235,14 @@ class Modération(commands.Cog):
                 else:
                     await ctx.send(f'**Bannissement :** {ban.user} **ID :** {ban.user.id} **|** **Raison :** {raisonban} ')
                     #embed=discord.Embed(title="Banissements", description=f"Serveur : {ctx.guild}", color=0xce0005, timestamp=datetime.utcnow())
-                    #embed.set_thumbnail(url = ctx.guild.icon_url)
-                    #embed.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+                    #embed.set_thumbnail(url = ctx.guild.icon)
+                    #embed.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
                     #await ctx.send(embed=embed)
                     #await ctx.send(f'Bannissements : {ban.user} , {raisonban} ')
 
         except:
             await ctx.send(config.err_mesg)
-            await ctx.message.add_reaction(emoji="❗")
+            await ctx.message.add_reaction("❗")
 
     # TODO: Add reason with ban
     @commands.command(aliases=['hban'], pass_context=True)
@@ -268,5 +267,5 @@ class Modération(commands.Cog):
 
 
 
-def setup(bot):
-    bot.add_cog(Modération(bot))
+async def setup(bot):
+    await bot.add_cog(Modération(bot))

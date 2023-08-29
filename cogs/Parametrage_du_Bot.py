@@ -40,7 +40,7 @@ if not os.path.isfile("config.py"):
 else:
     try:
         import config  # config.py is required to run; found in the same directory.
-        from config import botversion, des, pref, bbtoken, key, startup_extensions, logfile, err_mesg, err_mesg_pi, err_mesg_permission, dec, answers, default_rich_presence, mention, heightballp, hug_img, kiss_img, slap_img, poke_img # setup.py is used to get the version number
+        from config import nombot, createur, botversion, des, pref, bbtoken, key, startup_extensions, logfile, err_mesg, err_mesg_pi, err_mesg_permission, dec, answers, default_rich_presence, mention, heightballp, hug_img, kiss_img, slap_img, poke_img # setup.py is used to get the version number
         print('Parametrage_du_Bot Cog : Config loaded')
     except:
         print('Parametrage_du_Bot Cog : Fail to load config')
@@ -61,16 +61,16 @@ class Parametrage_du_Bot(commands.Cog):
         #    e = discord.Embed(title="Bot en mode \"Online\" pour:", description="Raison par défault", color=0x16c06b, timestamp=datetime.utcnow())
         #    e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/557926779768274975/logo.png")
         #    e.add_field(name='(Défault :)', value=f"({default_rich_presence})")
-        #    e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+        #    e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
         #    await ctx.send(embed=e)
         #    await ctx.bot.change_presence(status=discord.Status.online, activity=discord.Game(name=default_rich_presence))
         #if ctx.author.id == 386458437409570816 :
         #    e = discord.Embed(title="Bot en mode \"Online\" pour:", description="Raison par défault", color=0x16c06b, timestamp=datetime.utcnow())
         #    e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/557926779768274975/logo.png")
-        #    e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+        #    e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
         #    await ctx.send(embed=e)
         #    await ctx.bot.change_presence(status=discord.Status.online, activity=discord.Game(name=default_rich_presence))
-        await ctx.message.add_reaction(emoji="⚠")
+        await ctx.message.add_reaction("⚠")
         msg = ctx.message.content
         await ctx.send(f" ``{msg}`` : Commande Désactivée")
 
@@ -80,16 +80,16 @@ class Parametrage_du_Bot(commands.Cog):
         #if ctx.author.id == 305066808660983811 :
         #    e = discord.Embed(title="Bot en mode \"Online\" pour:", description=texte, color=0x16c06b, timestamp=datetime.utcnow())
         #    e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/557926779768274975/logo.png")
-        #    e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+        #    e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
         #    await ctx.send(embed=e)
         #    await ctx.change_presence(status=discord.Status.online, activity=discord.Game(name=texte))
         #if ctx.author.id == 386458437409570816 :
         #    e = discord.Embed(title="Bot en mode \"Online\" pour:", description=texte, color=0x16c06b, timestamp=datetime.utcnow())
         #    e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/557926779768274975/logo.png")
-        #    e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+        #    e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
         #    await ctx.send(embed=e)
         #    await ctx.change_presence(status=discord.Status.online, activity=discord.Game(name=texte))
-        await ctx.message.add_reaction(emoji="⚠")
+        await ctx.message.add_reaction("⚠")
         msg = ctx.message.content
         await ctx.send(f" ``{msg}`` : Commande Désactivée")
 
@@ -99,16 +99,16 @@ class Parametrage_du_Bot(commands.Cog):
     #    if ctx.author.id == 305066808660983811 :
     #        e = discord.Embed(title="Bot en mode \"Inactif\" pour:", description=texte, color=0xd9a904, timestamp=datetime.utcnow())
     #        e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/557926779768274975/logo.png")
-    #        e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+    #        e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
     #        await ctx.send(embed=e)
     #        await ctx.bot.change_presence(status=discord.Status.idle, activity=discord.Game(name=texte))
     #    if ctx.author.id == 386458437409570816 :
     #        e = discord.Embed(title="Bot en mode \"Inactif\" pour:", description=texte, color=0xd9a904, timestamp=datetime.utcnow())
     #        e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/557926779768274975/logo.png")
-    #        e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+    #        e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
     #        await ctx.send(embed=e)
     #        await ctx.bot.change_presence(status=discord.Status.idle, activity=discord.Game(name=texte))
-        await ctx.message.add_reaction(emoji="⚠")
+        await ctx.message.add_reaction("⚠")
         msg = ctx.message.content
         await ctx.send(f" ``{msg}`` : Commande Désactivée")
 
@@ -118,16 +118,16 @@ class Parametrage_du_Bot(commands.Cog):
     #    if ctx.author.id == 305066808660983811 :
     #        e = discord.Embed(title="Bot en \"Ne pas déranger\" pour:", description=texte, color=0xcc3939, timestamp=datetime.utcnow())
     #        e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/557926779768274975/logo.png")
-    #        e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+    #        e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
     #        await ctx.send(embed=e)
     #        await ctx.bot.change_presence(status=discord.Status.dnd, activity=discord.Game(name=texte))
     #    if ctx.author.id == 386458437409570816 :
     #        e = discord.Embed(title="Bot en \"Ne pas déranger\" pour:", description=texte, color=0xcc3939, timestamp=datetime.utcnow())
     #        e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/557926779768274975/logo.png")
-    #        e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+    #        e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
     #        await ctx.send(embed=e)
     #        await ctx.bot.change_presence(status=discord.Status.dnd, activity=discord.Game(name=texte))
-        await ctx.message.add_reaction(emoji="⚠")
+        await ctx.message.add_reaction("⚠")
         msg = ctx.message.content
         await ctx.send(f" ``{msg}`` : Commande Désactivée")
 
@@ -137,19 +137,19 @@ class Parametrage_du_Bot(commands.Cog):
     #    if ctx.author.id == 305066808660983811 :
     #        e = discord.Embed(title="Bot en mode \"Online\" pour:", description=texte, color=0x16c06b, timestamp=datetime.utcnow())
     #        e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/557926779768274975/logo.png")
-    #        e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+    #        e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
     #        await ctx.send(embed=e)
     #        await ctx.bot.change_presence(status=discord.Status.streaming, activity=discord.Game(name=texte))
     #    if ctx.author.id == 386458437409570816 :
     #        e = discord.Embed(title="Bot en mode \"Online\" pour:", description=texte, color=0x16c06b, timestamp=datetime.utcnow())
     #        e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/557926779768274975/logo.png")
-    #        e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+    #        e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
     #        await ctx.send(embed=e)
     #        await ctx.bot.change_presence(status=discord.Status.streaming, activity=discord.Game(name=texte))
-        await ctx.message.add_reaction(emoji="⚠")
+        await ctx.message.add_reaction("⚠")
         msg = ctx.message.content
         await ctx.send(f" ``{msg}`` : Commande Désactivée")
 
 
-def setup(bot):
-    bot.add_cog(Parametrage_du_Bot(bot))
+async def setup(bot):
+    await bot.add_cog(Parametrage_du_Bot(bot))

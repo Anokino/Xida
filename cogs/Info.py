@@ -31,7 +31,7 @@ from functools import partial
 import youtube_dl
 from youtube_dl import YoutubeDL
 from discord.utils import find
-import appcommands
+#import appcommands
 
 #from mcsrvstat import ServerStatus
 
@@ -43,7 +43,7 @@ if not os.path.isfile("config.py"):
 else:
     try:
         import config  # config.py is required to run; found in the same directory.
-        from config import botversion, des, pref, bbtoken, lignes, key, startup_extensions, logfile, err_mesg, err_mesg_pi, err_mesg_permission, dec, answers, default_rich_presence, mention, heightballp, hug_img, kiss_img, slap_img, poke_img # setup.py is used to get the version number
+        from config import nombot, createur, botversion, des, pref, bbtoken, lignes, key, startup_extensions, logfile, err_mesg, err_mesg_pi, err_mesg_permission, dec, answers, default_rich_presence, mention, heightballp, hug_img, kiss_img, slap_img, poke_img # setup.py is used to get the version number
         print('Info Cog : Config loaded')
     except:
         print('Info Cog : Fail to load config')
@@ -53,9 +53,10 @@ else:
 class Info(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        bot = self.bot
         self._last_member = None
         #self.client = ksoftapi.Client(api_key=(os.environ['APIKEY']))
-        bot = appcommands.Bot(command_prefix="$")
+        #bot = appcommands.Bot(command_prefix="$")
 
 
     @commands.command(name="help", aliases=['h'])
@@ -69,18 +70,18 @@ class Info(commands.Cog):
                 #await ctx.send(self.bot.get_command("usage"))
                 #command=command_name
                 #em = discord.Embed(colour=dec)
-                #em.set_author(name="Aide de " + self.bot.user.name + ":", icon_url=self.bot.user.avatar_url)
-                #em.set_footer(text="Codé par Δnokino#7477",
-                #            icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+                #em.set_author(name="Aide de " + self.bot.user.name + ":", icon_url=self.bot.user.avatar)
+                #em.set_footer(text="Codé par " + createur,
+                #            icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
                 #em.add_field(name=command_name, value=self.bot.get_command("usage"))
                 #await ctx.send(embed=em)
 
                 #await ctx.invoke(self.bot.get_command("usage"), command_name)
                 #await ctx.send(self.bot.get_command("usage"), command_name)
                 #em = discord.Embed(colour=dec)
-                #em.set_author(name="Aide de " + self.bot.user.name + ":", icon_url=self.bot.user.avatar_url)
-                #em.set_footer(text="Codé par Δnokino#7477",
-                #            icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+                #em.set_author(name="Aide de " + self.bot.user.name + ":", icon_url=self.bot.user.avatar)
+                #em.set_footer(text="Codé par " + createur,
+                #            icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
                 #em.add_field(name=command_name, value=self.bot.get_command("usage"))
                 #await ctx.send(embed=em)
                 command= self.bot.get_command(command_name)
@@ -96,14 +97,14 @@ class Info(commands.Cog):
 
                 e = discord.Embed(colour=dec)
                 e.add_field(name='Usage : -%s %s' % (command.name, command.signature if command.signature is not None else "No description"), value=" - " + (command.help if command.help is not None else "No description") + "\n - Alias : " + alias)
-                await ctx.message.add_reaction(emoji="❔")
+                await ctx.message.add_reaction("❔")
                 return await ctx.send(embed=e)
 
             else:
                 em = discord.Embed(colour=dec)
-                em.set_author(name="Aide de " + self.bot.user.name + ":", icon_url=self.bot.user.avatar_url)
-                em.set_footer(text="Codé par Δnokino#7477",
-                            icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+                em.set_author(name="Aide de " + self.bot.user.name + ":", icon_url=self.bot.user.avatar)
+                em.set_footer(text="Codé par " + createur,
+                            icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
                 for cog in self.bot.cogs:
                     help_message = ""
                     for commnd in self.bot.get_cog(cog).get_commands():
@@ -118,11 +119,11 @@ class Info(commands.Cog):
 
 
 
-    @bot.usercommand(name="id")
+    @commands.command(name="uid")
     async def uid(ctx, user):
         await ctx.send(f"The id of {user.mention} is {user.id}", ephemeral=True)
 
-    @bot.messagecommand(name="id")
+    @commands.command(name="mid")
     async def mid(ctx, msg):
         await ctx.send(f"The id of that message is {msg.id}", ephemeral=True)
 
@@ -133,7 +134,7 @@ class Info(commands.Cog):
     #    embed.set_thumbnail(url = "https://i.imgur.com/OYubpvf.gif")
     #    embed.add_field(name="Status:", value="**🔺Le bot est actuellement en maintenance🔺**", inline=True)
     #    embed.add_field(name="Error:", value="```Certaines commandes sont innacessibles et des bugs peuvent survenir```", inline=True)
-    #    embed.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+    #    embed.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
     #    await ctx.send(embed=embed)
 
     @commands.command(aliases=['te'])
@@ -142,7 +143,7 @@ class Info(commands.Cog):
         embed = discord.Embed(color = (dec))
         embed.set_thumbnail(url = "http://www.etme.com/assets/loader.gif")
         embed.add_field(name="Status:", value="**Le bot est connecté et opérationnel **", inline=True)
-        embed.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+        embed.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
         await ctx.send(embed=embed)
 
     @commands.command(aliases=['mcstatut', 'stu', 'mcstu'])
@@ -184,31 +185,34 @@ class Info(commands.Cog):
     #    embed.set_thumbnail(url = "https://media.giphy.com/media/5kzB8SARBWCmQ/giphy.gif")
     #    embed.add_field(name="Status:", value="**❌Le bot est actuellement Down❌**", inline=True)
     #    embed.add_field(name="Error:", value="```x.ctx.bot(dynos does not respond), self.down.hbrg_error)```", inline=True)
-    #    embed.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+    #    embed.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
     #    await ctx.send(embed=embed)
 
 
     @commands.command(aliases=['bi', 'binfo'])
     async def botinfo(self, ctx):
         """Affiche des Infos sur le Bot"""
-        e = discord.Embed(title="Xina", description="C'est moi !", color=0xeccd1c, timestamp=datetime.utcnow())
-        e.set_thumbnail(url=(await self.bot.fetch_user('552566569729916958')).avatar_url)
+        e = discord.Embed(title=nombot, description="C'est moi !", color=0xeccd1c, timestamp=datetime.utcnow())
+        e.set_thumbnail(url=(await self.bot.fetch_user('552566569729916958')).avatar)
         e.add_field(name='Version', value=botversion)
         e.add_field(name='Librairie', value='Discord.py')
         e.add_field(name='Discord.py API version:', value=discord.__version__)
         e.add_field(name='OS', value=f'{platform.system()}, {platform.release()}, {"(" + os.name + ")"}')
         e.add_field(name='Python version:', value=platform.python_version())
         e.add_field(name='ID :', value="552566569729916958")
-        e.add_field(name='Créateur', value='Anokino')
+        e.add_field(name='Créateur', value=createur)
         e.add_field(name='Utilisateurs', value=len(ctx.bot.users))
-        e.add_field(name='Invite', value=(os.environ['invite']))
+        try:
+            e.add_field(name='Invite', value=(os.environ['invite']))
+        except:
+            print("")
         e.add_field(name='Discord', value='~~https://discord.gg/~~')
         e.add_field(name='Date version finale 1', value='Au cours de l\'année 2019')
         e.add_field(name='Nombre de lignes', value=lignes)
         cmmd_nb = str(len(self.bot.commands))
 
         e.add_field(name='Nombre actuel de commandes', value=cmmd_nb)
-        e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+        e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
         await ctx.send(embed=e)
 
     @commands.command(aliases=['pi'])
@@ -261,17 +265,16 @@ class Info(commands.Cog):
     async def serverinfo(self, ctx):
         """Affiche toutes les infos sur le serveur"""
         e = discord.Embed(title=f"Serveur : {ctx.guild}", description="Infos", color=0xeccd1c, timestamp=datetime.utcnow())
-        e.set_thumbnail(url= ctx.guild.icon_url)
-        e.add_field(name='Propriétaire', value= ctx.guild.owner)
-        e.add_field(name='Region', value= ctx.guild.region)
+        e.set_thumbnail(url= ctx.guild.icon)
+        e.add_field(name='Propriétaire', value= ctx.guild.owner_id)
         e.add_field(name='Securité', value= ctx.guild.verification_level)
         e.add_field(name='Invitation', value='En cours')
         e.add_field(name='Utilisateurs', value=len(ctx.guild.members))
-        e.add_field(name='No', value='No')
-        e.add_field(name='No', value='No')
-        e.add_field(name='No', value='No')
-        e.add_field(name='No', value='No')
-        e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+        e.add_field(name='Présents', value=ctx.guild.approximate_presence_count)
+        e.add_field(name='Description', value=ctx.guild.description)
+        e.add_field(name='features', value=ctx.guild.features)
+        e.add_field(name='Niveau de Boost', value=ctx.guild.premium_tier)
+        e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
         await ctx.send(embed=e)
 
     @commands.command(aliases=['sa'])
@@ -285,10 +288,10 @@ class Info(commands.Cog):
         try:
             channels = ctx.guild.channels
             embed=discord.Embed(title=f"Salons et Catégories de {ctx.guild}", color=dec, timestamp=datetime.utcnow())
-            embed.set_thumbnail(url = ctx.guild.icon_url)
+            embed.set_thumbnail(url = ctx.guild.icon)
             for channel in channels:
                 embed.add_field(name=f"Salon/Catégorie : {channel.name}", value=f"  ID : {channel.id}", inline=True)
-                embed.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+                embed.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
             await ctx.send(embed=embed)
         except:
             ctx.send("Trop de Salons/Catégories.")
@@ -303,10 +306,10 @@ class Info(commands.Cog):
         await ctx.send(""":warning: **Le Bot peut cesser de répondre pendant la récupération des rôles**""")
         roles = ctx.guild.roles
         embed=discord.Embed(title="Roles", description=f"Serveur : {ctx.guild}", color=0xce0005, timestamp=datetime.utcnow())
-        embed.set_thumbnail(url = ctx.guild.icon_url)
+        embed.set_thumbnail(url = ctx.guild.icon)
         for role in roles:
             embed.add_field(name=f"Role : {role.name}", value=f"ID : {role.id}", inline=False)
-            embed.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            embed.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
         await ctx.send(embed=embed)
 
 
@@ -318,8 +321,8 @@ class Info(commands.Cog):
             member = ctx.message.author
             roles = [role for role in member.roles]
             embed = discord.Embed(color = 0xF47B67, timestamp=datetime.utcnow())
-            embed.set_thumbnail(url = member.avatar_url)
-            embed.set_author(name=f"Infos sur {member.display_name}:", icon_url=member.avatar_url)
+            embed.set_thumbnail(url = member.avatar)
+            embed.set_author(name=f"Infos sur {member.display_name}:", icon_url=member.avatar)
             embed.add_field(name="Pseudo sur ce serveur:", value=member.display_name, inline=True)
             embed.add_field(name="Nom d'utilisateur:", value=member, inline=True)
             embed.add_field(name="Statut", value=member.status, inline=True)
@@ -328,13 +331,13 @@ class Info(commands.Cog):
             embed.add_field(name="Création compte:", value=member.created_at, inline=True)
             embed.add_field(name="Role principal : ", value=member.top_role.mention, inline=True)
             embed.add_field(name=f"Roles : ({len(roles)})", value=" ".join([role.mention for role in roles]), inline=True)
-            embed.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            embed.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
             await ctx.send(embed=embed)
         else:
             roles = [role for role in member.roles]
             embed = discord.Embed(color = 0xF47B67, timestamp=datetime.utcnow())
-            embed.set_thumbnail(url = member.avatar_url)
-            embed.set_author(name=f"Infos sur {member.display_name}:", icon_url=member.avatar_url)
+            embed.set_thumbnail(url = member.avatar)
+            embed.set_author(name=f"Infos sur {member.display_name}:", icon_url=member.avatar)
             embed.add_field(name="Pseudo:", value=member.display_name, inline=True)
             embed.add_field(name="Nom d'utilisateur:", value=member, inline=True)
             embed.add_field(name="Statut", value=member.status, inline=True)
@@ -343,7 +346,7 @@ class Info(commands.Cog):
             embed.add_field(name="Création compte:", value=member.created_at, inline=True)
             embed.add_field(name="Role principal : ", value=member.top_role.mention, inline=True)
             embed.add_field(name=f"Roles : ({len(roles)})", value=" ".join([role.mention for role in roles]), inline=True)
-            embed.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            embed.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
             await ctx.send(embed=embed)
 
     @commands.command(name="avatar", aliases=['pp', 'av', 'userpp', 'upp'])
@@ -352,16 +355,14 @@ class Info(commands.Cog):
         if member is None:
             member = ctx.message.author
             e = discord.Embed(description="Image de profil de {}".format(member.name), title='Avatar', color=0xF47B67, timestamp=datetime.utcnow())
-            e.set_image(url=member.avatar_url)
-            e.set_footer(text="Codé par Δnokino#7477", icon_url=member.avatar_url)
+            e.set_image(url=member.avatar)
+            e.set_footer(text="Codé par " + createur, icon_url=member.avatar)
             await ctx.send(embed=e)
         else:
             e = discord.Embed(description="Image de profil de {}".format(member.name), title='Avatar', color=0xF47B67, timestamp=datetime.utcnow())
-            e.set_image(url=member.avatar_url)
-            e.set_footer(text="Codé par Δnokino#7477", icon_url=member.avatar_url)
+            e.set_image(url=member.avatar)
+            e.set_footer(text="Codé par " + createur, icon_url=member.avatar)
             await ctx.send(embed=e)
 
-
-
-def setup(bot):
-    bot.add_cog(Info(bot))
+async def setup(bot):
+    await bot.add_cog(Info(bot))

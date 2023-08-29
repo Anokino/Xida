@@ -40,7 +40,7 @@ if not os.path.isfile("config.py"):
 else:
     try:
         import config  # config.py is required to run; found in the same directory.
-        from config import cogs, botversion, des, pref, bbtoken, key, startup_extensions, logfile, err_mesg, err_mesg_pi, err_mesg_permission, dec, answers, default_rich_presence, mention, heightballp, hug_img, kiss_img, slap_img, poke_img # setup.py is used to get the version number
+        from config import nombot, createur, cogs, botversion, des, pref, bbtoken, key, startup_extensions, logfile, err_mesg, err_mesg_pi, err_mesg_permission, dec, answers, default_rich_presence, mention, heightballp, hug_img, kiss_img, slap_img, poke_img # setup.py is used to get the version number
         print('Administrateur Cog : Config loaded')
     except:
         print('Administrateur Cog : Fail to load config')
@@ -88,23 +88,24 @@ class Administrateur(commands.Cog):
         """Relance le Bot (utile en cas de problème)"""
         if ctx.author.id == 305066808660983811 :
             await ctx.bot.change_presence(status=discord.Status.dnd, activity=discord.Game(name='Redémarrage...'))
-            e = discord.Embed(title="Redémarrage", description="Xina", color=0xeccd1c, timestamp=datetime.utcnow())
+            await ctx.send("Veuillez patienter...")
+            e = discord.Embed(title="Redémarrage", description=nombot, color=0xeccd1c, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://i.imgur.com/d2Mnv3M.gif")
             e.add_field(name='Bot:', value='Chargement...')
-            e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
             await ctx.send(embed=e)
             await asyncio.sleep(2)
             await ctx.channel.purge(limit=2)
 
-            e = discord.Embed(title="Redémarrage", description="Xina", color=0xeccd1c, timestamp=datetime.utcnow())
+            e = discord.Embed(title="Redémarrage", description=nombot, color=0xeccd1c, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://i.imgur.com/d2Mnv3M.gif")
             e.add_field(name='Bot:', value=f'Ouverture des cogs...')
             e.set_footer(text="Veuillez patienter")
             await ctx.send(embed=e)
             try:
                 for cog in cogs:
-                    self.bot.unload_extension(f'cogs.{cog}')
-                    self.bot.load_extension(f'cogs.{cog}')
+                    await self.bot.unload_extension(f'cogs.{cog}')
+                    await self.bot.load_extension(f'cogs.{cog}')
             except Exception as e:
                 await ctx.send('Erreur')#\N{PISTOL}')
                 await ctx.send('{}: {}'.format(type(e).__name__, e))
@@ -113,27 +114,31 @@ class Administrateur(commands.Cog):
             await asyncio.sleep(5)
             await ctx.channel.purge(limit=2)
 
-            e = discord.Embed(title="Redémarrage", description="Xina", color=0xeccd1c, timestamp=datetime.utcnow())
+            e = discord.Embed(title="Redémarrage", description=nombot, color=0xeccd1c, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://i.imgur.com/d2Mnv3M.gif")
             e.add_field(name='Bot:', value=f'Contact de l\'API Discord...')
             e.set_footer(text="Veuillez patienter")
             await ctx.send(embed=e)
-
             await asyncio.sleep(5)
+            await ctx.channel.purge(limit=1)
+            e = discord.Embed(title="Bot en cours de redémarrage !", description=nombot, color=0xeccd1c, timestamp=datetime.utcnow())
+            e.set_thumbnail(url="https://png.pngtree.com/svg/20170315/5d8f7e389c.png")
+            e.add_field(name='Bot:', value=f'Redémaré par : {ctx.author.name}')
+            e.set_footer(text=" /!\ Le bot peut mettre quelque temps avant de répondre /!\ ")
+            await ctx.send(embed=e)
             os.execl(sys.executable, os.path.abspath(__file__), *sys.argv)
             #self.bot.run('NjMyNjMzMzY5ODYzMzg5MjA3.XaIPvQ.wo61xhoROwSE4WqKUQl8q0_2oUc')
             await asyncio.sleep(1)
             await ctx.channel.purge(limit=1)
-
             await ctx.bot.change_presence(status=discord.Status.online, activity=discord.Game(name=default_rich_presence))
-            e = discord.Embed(title="Bot redémarré !", description="Xina", color=0xeccd1c, timestamp=datetime.utcnow())
+            e = discord.Embed(title="Bot redémarré !", description=nombot, color=0xeccd1c, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://png.pngtree.com/svg/20170315/5d8f7e389c.png")
             e.add_field(name='Bot:', value=f'Redémaré par : {ctx.author.name}')
             e.set_footer(text="Le bot peut mettre quelque temps avant de répondre.")
             await ctx.send(embed=e)
             await asyncio.sleep(3)
         else:
-            await ctx.send(" :x: Désolé mais seul l'administrateur peut éxécuter cette commande.")
+            await ctx.send(" :x: Désolé mais seul l'administrateur peut exécuter cette commande.")
 
 
 
@@ -143,24 +148,25 @@ class Administrateur(commands.Cog):
         """Eteint et deconnecte le Bot"""
         if ctx.author.id == 305066808660983811 :
             await self.bot.change_presence(status=discord.Status.dnd, activity=discord.Game(name="🎈Indisponible🎈"))
-            e = discord.Embed(title="Extinction", description="Xina", color=0xeccd1c, timestamp=datetime.utcnow())
+            e = discord.Embed(title="Extinction", description=nombot, color=0xeccd1c, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://i.imgur.com/d2Mnv3M.gif")
             e.add_field(name='Bot:', value='En cours d\'arrêt...')
-            e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
             await ctx.send(embed=e)
             await asyncio.sleep(6)
             await self.bot.change_presence(status=discord.Status.dnd, activity=discord.Game(name="BOT ARRÊTÉ"))
             await ctx.channel.purge(limit=2)
             #await ctx.send('```Cette commande est indisponible car elle provoque des instabilitées```')
-            e = discord.Embed(title="Bot arrêté", description="Xina", color=0xf20000, timestamp=datetime.utcnow())
+            e = discord.Embed(title="Bot arrêté", description=nombot, color=0xf20000, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://png.pngtree.com/svg/20170217/toggle_off_962765.png")
             e.add_field(name='Bot:', value=f'Arrêté par : {ctx.author.name}')
             e.set_footer(text="Le bot peut apparaître toujours connecté le temps qu'une réponse soit reçue par l'api Discord, mais il est éteint.")
             await ctx.send(embed=e)
-            await ctx.bot.logout()
-            sys.exit
+            await ctx.bot.close()
+            #on stoppe le code python
+            sys.exit()
         else:
             await ctx.send(":x: Désolé mais seul l'administrateur peut exécuter cette commande.")
 
-def setup(bot):
-    bot.add_cog(Administrateur(bot))
+async def setup(bot):
+    await bot.add_cog(Administrateur(bot))

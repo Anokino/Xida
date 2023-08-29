@@ -41,7 +41,7 @@ if not os.path.isfile("config.py"):
 else:
     try:
         import config  # config.py is required to run; found in the same directory.
-        from config import botversion, des, pref, bbtoken, key, startup_extensions, logfile, err_mesg, err_mesg_pi, err_mesg_permission, dec, answers, default_rich_presence, mention, heightballp, hug_img, kiss_img, slap_img, poke_img # setup.py is used to get the version number
+        from config import nombot, createur, botversion, des, pref, bbtoken, key, startup_extensions, logfile, err_mesg, err_mesg_pi, err_mesg_permission, dec, answers, default_rich_presence, mention, heightballp, hug_img, kiss_img, slap_img, poke_img # setup.py is used to get the version number
         print('Divers Cog : Config loaded')
     except:
         print('Divers Cog : Fail to load config')
@@ -64,9 +64,9 @@ class Divers(commands.Cog):
         e.set_footer(text=f'Réagissez avec les réactions ci-dessous pour donner votre avis sur cette suggestion !')
         m = await ctx.send(embed=e)
         asyncio.sleep(0.3)
-        await m.add_reaction(emoji="✅")
+        await m.add_reaction("✅")
         asyncio.sleep(0.2)
-        await m.add_reaction(emoji="❌")
+        await m.add_reaction("❌")
 
     @commands.command(aliases = ["bugreport"])
     async def bug(self, ctx, sujet, plateforme, *, bug):
@@ -78,9 +78,9 @@ class Divers(commands.Cog):
         e.set_footer(text=f'Réagissez avec les réactions ci-dessous si vous avez aussi ce bug !')
         m = await ctx.send(embed=e)
         asyncio.sleep(0.3)
-        await m.add_reaction(emoji="✅")
+        await m.add_reaction("✅")
         asyncio.sleep(0.2)
-        await m.add_reaction(emoji="❌")
+        await m.add_reaction("❌")
 
     @commands.command(aliases = ["reporte"])
     async def report(self, ctx, membre: discord.Member, *, raison):
@@ -93,9 +93,9 @@ class Divers(commands.Cog):
         e.set_footer(text=f'Demandé par {ctx.author.name}:')
         m = await ctx.send(embed=e)
         asyncio.sleep(0.3)
-        await m.add_reaction(emoji="✅")
+        await m.add_reaction("✅")
         asyncio.sleep(0.2)
-        await m.add_reaction(emoji="❌")
+        await m.add_reaction("❌")
 
 
     @commands.command(aliases=["fancy"])
@@ -128,7 +128,7 @@ class Divers(commands.Cog):
             e = discord.Embed(title="__Erreur :__", color=0xeccd1c, timestamp=datetime.utcnow())
             e.set_thumbnail(url="https://cdn.discordapp.com/attachments/399581255961804821/511145934982217738/error.png")
             e.add_field(name="**Erreur**", value="*Message trop long ?* ou si erreur, faites -report")
-            e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+            e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
             await ctx.send(embed=e)
 
 
@@ -202,5 +202,5 @@ class Divers(commands.Cog):
     async def pillow(self, ctx):
         await ctx.send('pillow')
 
-def setup(bot):
-    bot.add_cog(Divers(bot))
+async def setup(bot):
+    await bot.add_cog(Divers(bot))

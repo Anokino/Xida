@@ -43,7 +43,7 @@ if not os.path.isfile("config.py"):
 else:
     try:
         import config  # config.py is required to run; found in the same directory.
-        from config import botversion, des, pref, bbtoken, key, startup_extensions, logfile, err_mesg, err_mesg_pi, err_mesg_permission, dec, answers, default_rich_presence, mention, heightballp, hug_img, kiss_img, slap_img, poke_img # setup.py is used to get the version number
+        from config import nombot, createur, botversion, des, pref, bbtoken, key, startup_extensions, logfile, err_mesg, err_mesg_pi, err_mesg_permission, dec, answers, default_rich_presence, mention, heightballp, hug_img, kiss_img, slap_img, poke_img # setup.py is used to get the version number
         print('Fun Cog : Config loaded')
     except:
         print('Fun Cog : Fail to load config')
@@ -75,7 +75,7 @@ class Fun(commands.Cog):
                 e = discord.Embed(description=f'(entre {nombre1} et {nombre2})', title="Lancé de dé", color=0xffffff, timestamp=datetime.utcnow())
                 e.set_thumbnail(url='https://i.imgur.com/z3kHWnZ.png')
                 e.add_field(name=f"{ctx.author.name}, Voila ma réponse: ", value=rnd)
-                e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+                e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
                 await ctx.send(embed=e)
             elif nombre2 is None:
                 try:
@@ -83,14 +83,14 @@ class Fun(commands.Cog):
                     e = discord.Embed(description=f'(entre 1 et {nombre1})', title="Lancé de dé", color=0xffffff, timestamp=datetime.utcnow())
                     e.set_thumbnail(url='https://i.imgur.com/z3kHWnZ.png')
                     e.add_field(name=f"{ctx.author.name}, Voila ma réponse: ", value=rnd)
-                    e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+                    e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
                     await ctx.send(embed=e)
                 except:
                     rnd = randint(nombre1, 1)
                     e = discord.Embed(description=f'(entre 1 et {nombre1})', title="Lancé de dé", color=0xffffff, timestamp=datetime.utcnow())
                     e.set_thumbnail(url='https://i.imgur.com/z3kHWnZ.png')
                     e.add_field(name=f"{ctx.author.name}, Voila ma réponse: ", value=rnd)
-                    e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+                    e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
                     await ctx.send(embed=e)
             else:
                 try:
@@ -98,20 +98,20 @@ class Fun(commands.Cog):
                     e = discord.Embed(description=f'(entre {nombre1} et {nombre2})', title="Lancé de dé", color=0xffffff, timestamp=datetime.utcnow())
                     e.set_thumbnail(url='https://i.imgur.com/z3kHWnZ.png')
                     e.add_field(name=f"{ctx.author.name}, Voila ma réponse: ", value=rnd)
-                    e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+                    e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
                     await ctx.send(embed=e)
                 except:
                     rnd = randint(nombre2, nombre1)
                     e = discord.Embed(description=f'(entre {nombre1} et {nombre2})', title="Lancé de dé", color=0xffffff, timestamp=datetime.utcnow())
                     e.set_thumbnail(url='https://i.imgur.com/z3kHWnZ.png')
                     e.add_field(name=f"{ctx.author.name}, Voila ma réponse: ", value=rnd)
-                    e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+                    e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
                     await ctx.send(embed=e)
 
 
         except:
             await ctx.send(config.err_mesg)
-            await ctx.message.add_reaction(emoji="❗")
+            await ctx.message.add_reaction("❗")
 
     @commands.command()
     async def piece(self, ctx):
@@ -122,18 +122,18 @@ class Fun(commands.Cog):
                 e = discord.Embed(description=f'Pile ou face ?', title="Lancé de pièce", color=0xffffff, timestamp=datetime.utcnow())
                 e.set_thumbnail(url='https://i.imgur.com/z3kHWnZ.png')
                 e.add_field(name=f"{ctx.author.name}, Voila ma réponse: ", value="Pile")
-                e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+                e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
                 await ctx.send(embed=e)
             else:
                 e = discord.Embed(description=f'Pile ou face ?', title="Lancé de pièce", color=0xffffff, timestamp=datetime.utcnow())
                 e.set_thumbnail(url='https://i.imgur.com/z3kHWnZ.png')
                 e.add_field(name=f"{ctx.author.name}, Voila ma réponse: ", value="Face")
-                e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+                e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
                 await ctx.send(embed=e)
 
         except:
             await ctx.send(config.err_mesg)
-            await ctx.message.add_reaction(emoji="❗")
+            await ctx.message.add_reaction("❗")
 
     @commands.command(name="8ball", aliases=['ball8'])
     async def _8ball(self, ctx, *, question):
@@ -191,7 +191,7 @@ class Fun(commands.Cog):
         """Une photo d'un chat, parce que c'est mignon"""
         e = discord.Embed(description="Vive les chats", title='Miaou', color=0xF47B67, timestamp=datetime.utcnow())
         e.set_image(url='https://www.assuropoil.fr/wp-content/uploads/chat-heureux-en-appartement-savoir.jpg ')
-        e.set_footer(text="Codé par Δnokino#7477", icon_url=(await self.bot.fetch_user('305066808660983811')).avatar_url)
+        e.set_footer(text="Codé par " + createur, icon_url=(await self.bot.fetch_user('305066808660983811')).avatar)
         await ctx.send(embed=e)
 
     @commands.command()
@@ -276,7 +276,7 @@ class Fun(commands.Cog):
     @commands.command()
     async def cookie(self, ctx):
         """Mettez un peu de cookies dans votre vie 🍪"""
-        await ctx.message.add_reaction(emoji="🍪")
+        await ctx.message.add_reaction("🍪")
 
-def setup(bot):
-    bot.add_cog(Fun(bot))
+async def setup(bot):
+    await bot.add_cog(Fun(bot))

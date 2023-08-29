@@ -1,4 +1,4 @@
-# Xida
+# Xina
 Discord.py discord Bot
 ------------------------------
 

@@ -4,6 +4,7 @@ botversion = f"bêta 1.2, release {release}"
 # Discord App token
 bbtoken = "nop" 
 
+createur = "anokino"
 cogs = ["Info", "Modération", "Fun", "Divers", "Music", "Parametrage_du_Bot", "Administrateur", "Test"]
 #cogs = ["Music"]
 # YouTube API key 
@@ -16,6 +17,7 @@ startup_extensions = ["cogs.crazi", "cogs.emoji"]
 
 logfile = 'discord.log' #Name of the file to log to (eg. 'discord.log')
 pref = "$" #Command prefix
+nombot = "Xina"
 des = "Xina Discord.py Bot" #Description shown on using the help command
 
 # Error messages

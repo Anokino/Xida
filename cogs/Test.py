@@ -41,7 +41,7 @@ if not os.path.isfile("config.py"):
 else:
     try:
         import config  # config.py is required to run; found in the same directory.
-        from config import botversion, des, pref, bbtoken, key, startup_extensions, logfile, err_mesg, err_mesg_pi, err_mesg_permission, dec, answers, default_rich_presence, mention, heightballp, hug_img, kiss_img, slap_img, poke_img # setup.py is used to get the version number
+        from config import nombot, createur, botversion, des, pref, bbtoken, key, startup_extensions, logfile, err_mesg, err_mesg_pi, err_mesg_permission, dec, answers, default_rich_presence, mention, heightballp, hug_img, kiss_img, slap_img, poke_img # setup.py is used to get the version number
         print('Divers Cog : Config loaded')
     except:
         print('Divers Cog : Fail to load config')
@@ -67,7 +67,7 @@ class Test(commands.Cog):
         img = await self.client.random_image("birb")
         e = discord.Embed(description="Birb, demandé par {}".format(ctx.author.name), title='Avatar', color=0xF47B67, timestamp=datetime.utcnow())
         e.set_image(url=img.url)
-        e.set_footer(text="Codé par Δnokino#7477", icon_url=ctx.author.avatar_url)
+        e.set_footer(text="Codé par " + createur, icon_url=ctx.author.avatar)
         await ctx.send(embed=e)
 
     @commands.command(name="tsearch", aliases=["tagsearch", "tagsh"])
@@ -78,7 +78,7 @@ class Test(commands.Cog):
         img = await self.client.random_image(tag)
         e = discord.Embed(description="Image demandée par {}".format(ctx.author.name), title=tag, color=0xF47B67, timestamp=datetime.utcnow())
         e.set_image(url=img.url)
-        e.set_footer(text="Codé par Δnokino#7477", icon_url=ctx.author.avatar_url)
+        e.set_footer(text="Codé par " + createur, icon_url=ctx.author.avatar)
         await ctx.send(embed=e)
 
     @commands.command(name="edit")
@@ -93,5 +93,5 @@ class Test(commands.Cog):
 
 
 
-def setup(bot):
-    bot.add_cog(Test(bot))
+async def setup(bot):
+    await bot.add_cog(Test(bot))
